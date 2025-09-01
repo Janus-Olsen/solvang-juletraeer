@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solvang Juletræer</title>
+    <style>
+        header {
+            color: white;
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        header img {
+            display: block;
+            margin: 0 auto 10px;
+            max-width: 100%;
+        }
+
+        main img {
+            display: block;
+            margin: 0 auto 10px;
+            max-width: 100%;
+            height: auto;          /* bevar proportioner */
+            max-height: 50vh;      /* eller 60vh hvis du vil have større billede */
+            object-fit: contain;   /* undgå beskæring */
+            border-radius: 2px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #048c04;
+        }
+
+        .info {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .info a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 15px;
+            background: #048c04;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .info a:hover {
+            background: #006400;
+        }
+
+        /* Sticky footer setup */
+        html, body {
+            height: 100%; /* gør det muligt for flex at fylde hele vinduet */
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .wrapper {
+            flex: 1; /* tager al pladsen mellem header og footer */
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 0; /* main fylder kun efter indholdets højde */
+            margin: 0 auto;
+            margin-bottom: 20px;
+            max-width: 90%;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 2;
+        }
+        main p {
+            /*text-align: center;
+            max-width: 80%;*/
+        }
+
+        footer {
+            margin-top: auto; /* sikrer at footer trykkes ned i bunden */
+            text-align: center;
+            padding: 15px;
+            background: #eee;
+            font-size: 0.9em;
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* Sne-animation */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: lightblue;
+            font-size: 1em;
+            opacity: 0.9;
+            user-select: none;
+            pointer-events: none;
+            z-index: 1;
+            animation: snowfall linear forwards;
+        }
+
+        /* Glidende fald med side-til-side bevægelse */
+        @keyframes snowfall {
+            0% {
+                transform: translateX(0) translateY(-10px) rotate(0deg);
+                opacity: 1;
+            }
+            20% {
+                transform: translateX(15px) translateY(20vh) rotate(72deg);
+            }
+            40% {
+                transform: translateX(0) translateY(40vh) rotate(144deg);
+            }
+            60% {
+                transform: translateX(-15px) translateY(60vh) rotate(216deg);
+            }
+            80% {
+                transform: translateX(0) translateY(80vh) rotate(288deg);
+            }
+            100% {
+                transform: translateX(15px) translateY(100vh) rotate(360deg);
+                opacity: 0.5;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <img src="logo.png" alt="Virksomhedens logo">
+</header>
+
+<div class="wrapper">
+    <main>
+        <h2>Velkommen!</h2>
+        <img src="forside_img.jpg" alt="Ejerne">
+
+        <p style="text-align:center;">
+            Hos Solvang Juletræer er vi fast leverandør af det vigtigste til juleaften.<br>
+            Kom og fæld jeres juletræ med familien.<br>
+            Vi sælger eller hjælper også gerne med juletræsfoden, pynte-gran (også til æresporten) og meget mere.<br>
+            Find os på <strong> Solvang 7, 4800 Falster</strong>.
+        </p>
+
+        <div class="info">
+            <p><strong>Åbningstid:</strong> Lørdag d. 20. & Søndag d.21.december kl. 10:00 – 16:00</p>
+            <a href="tel:28459844">Ring til os: 28 45 98 44</a>
+            <a href="https://www.google.com/maps?q=Solvang+7+Falster" target="_blank">Find vej på Google Maps</a>
+        </div>
+    </main>
+</div>
+
+<footer>
+    © 1996–2025 Solvang Juletræer
+</footer>
+
+<script>
+    function createSnowflake() {
+        let snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        snowflake.textContent = "❄";
+
+        // Tilfældig startplacering og størrelse
+        snowflake.style.left = Math.random() * 100 + "vw";
+        snowflake.style.fontSize = (Math.random() * 15 + 10) + "px";
+
+        // Tilfældig faldtid
+        let fallDuration = Math.random() * 5 + 5;
+        snowflake.style.animationDuration = fallDuration + "s";
+
+        document.body.appendChild(snowflake);
+
+        // Fjern snefnug når animationen er færdig
+        setTimeout(() => {
+            snowflake.remove();
+        }, fallDuration * 2000);
+    }
+
+    // Generer sne løbende
+    setInterval(createSnowflake, 300);
+</script>
+</body>
+</html>
