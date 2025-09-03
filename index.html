@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solvang Juletræer</title>
     <style>
+
+        p {
+            font-weight: 400; /* normal tekst */
+        }
+
+        .juleliste {
+            list-style: none; /* fjern standard prikker */
+            padding-left: 0;
+        }
+
+        .juleliste li::before {
+            content: "🌲";       /* juletræ foran */
+            margin-right: 8px;  /* afstand til teksten */
+        }
+
         header {
             color: white;
             text-align: center;
@@ -21,13 +38,14 @@
             display: block;
             margin: 0 auto 10px;
             max-width: 100%;
-            height: auto;          /* bevar proportioner */
-            max-height: 50vh;      /* eller 60vh hvis du vil have større billede */
-            object-fit: contain;   /* undgå beskæring */
+            height: auto; /* bevar proportioner */
+            max-height: 50vh; /* eller 60vh hvis du vil have større billede */
+            object-fit: contain; /* undgå beskæring */
             border-radius: 2px;
         }
 
         h1, h2 {
+            font-weight: 700; /* gør overskrifter tydelige */
             text-align: center;
             color: #048c04;
         }
@@ -46,6 +64,7 @@
             text-decoration: none;
             border-radius: 6px;
             transition: background 0.2s;
+            width: 180px;
         }
 
         .info a:hover {
@@ -62,6 +81,9 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+
+            font-family: 'Nunito Sans', sans-serif;
+            font-weight: 400; /* standard vægt til brødtekst */
         }
 
         .wrapper {
@@ -82,9 +104,9 @@
             position: relative;
             z-index: 2;
         }
+
         main p {
-            /*text-align: center;
-            max-width: 80%;*/
+            text-align: left;
         }
 
         footer {
@@ -146,17 +168,29 @@
     <main>
         <h2>Velkommen!</h2>
         <img src="forside_img.jpg" alt="Ejerne">
-
-        <p style="text-align:center;">
-            Hos Solvang Juletræer er vi fast leverandør af det vigtigste til juleaften.<br>
-            Kom og fæld jeres juletræ med familien.<br>
-            Vi sælger eller hjælper også gerne med juletræsfoden, pynte-gran (også til æresporten) og meget mere.<br>
-            Find os på <strong> Solvang 7, 4800 Falster</strong>.
+        <p>
+            Hos Solvang Juletræer er vi fast leverandør af det vigtigste til jeres juleaften.<br>
+            Kom og fæld jeres juletræ med familien.<br><br>
+            Hos os finder I:
         </p>
 
+        <ul class="juleliste">
+            <li>Nordmanns juletræer (i begrænset udvalg)</li>
+            <li>Rødgrans juletræer</li>
+            <li>Bundter af gran (også til æresporten)</li>
+            <li>Juletræsfødder (eller hjælp til jeres egen)</li>
+            <li>Og andet pyntegrønt, m.m.</li>
+        </ul>
+
+        <p>
+            Salget af granbundter begynder allerede d. 1. november.
+        </p>
+
+        <p>Find os på <strong> Solvang 7, 4800 Falster</strong>.</p>
         <div class="info">
-            <p><strong>Åbningstider:</strong> Hverdage fra 14:00-16:30 og<br>
-                Lørdag d. 20. & Søndag d.21.december kl. 10:00 – 16:00</p>
+            <p><strong>Åbningstider</strong> (med betjening)<br>
+                Hverdage fra 14:00-16:30 i december, samt<br>
+                lørdag d. 20. & søndag d.21. december kl. 10:00 – 16:00.</p>
             <a href="tel:20959844">Ring til os: 20 95 98 44</a>
             <a href="https://www.google.com/maps?q=Solvang+7+Falster" target="_blank">Find vej på Google Maps</a>
         </div>
